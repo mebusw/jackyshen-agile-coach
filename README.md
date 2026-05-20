@@ -23,6 +23,11 @@ Most AI prompts for agile teams are too generic to be useful. This toolkit addre
 The result: prompts that behave like a specialist colleague, not a generic assistant.
 
 ---
+## Installation
+
+`npx skills add mebusw/jackyshen-agile-coach`
+
+---
 
 ## The GRACE Prompt Framework
 
@@ -31,9 +36,9 @@ All 11 prompts follow the same five-layer structure:
 ```
 ### GOAL ###      What you want to achieve and why it matters
 ### ROLE ###      Expert identity + 3 capabilities + "You Never" guardrails
-### CONTEXT ###   Business scenario, team details, and input data
 ### ACTION ###    Specific tasks with explicit Do / Don't boundaries
-### FORMAT ###    Output structure, tables, length, and examples
+### CONTEXT ###   Business scenario, team details, and input data
+### EXPRESSION ###    Output structure, tables, length, and examples
 ```
 
 The **"You Never" guardrails** in the ROLE section are the key differentiator. Each prompt's guardrails are tailored to the most common failure modes of that specific scenario — not generic boilerplate.
@@ -139,9 +144,9 @@ jackyshen-agile-coach/
 
 ## About the Author
 
-**Jacky Shen** is a Chief Agile Coach and Scrum Alliance Certified Scrum Trainer (CST) based in Shanghai. As a CST, he is authorized to issue **CSM** (Certified ScrumMaster) and **CSPO** (Certified Scrum Product Owner) certifications.
+**Jacky Shen** is a Chief Agile Coach and Scrum Alliance Certified Scrum Trainer (CST) , also the 1st Certified Team Coach in the world. As a CST, he is authorized to issue **CSM** (Certified ScrumMaster) , **CSPO** (Certified Scrum Product Owner) and **CAL** (Certified Agile Leadership) certifications.
 
-He is the founder of UPerform Enterprise Management and a practitioner at the intersection of agile methodology and AI-assisted workflows.
+He is the global partner of UPerform AI & Agile Consulting and a practitioner at the intersection of agile methodology and AI-assisted workflows.
 
 ---
 
