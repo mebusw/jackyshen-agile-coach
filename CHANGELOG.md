@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 - 2026-07-04
+
+### Documentation
+- Rename "Agile General" category to "Agile" in SKILL.md scenarios table for naming consistency
+
 ## 1.0.1 - 2026-07-04
 
 ### Features
