@@ -7,17 +7,22 @@ UPerform Enterprise Management Co., Ltd. (Shanghai)
 
 ## Table of Contents
 
-1. [Definition of Ready (DoR) Check](#1-definition-of-ready-dor-check)
-2. [Backlog Prioritization & Ordering](#2-backlog-prioritization--ordering)
-3. [Risk Identification & Analysis](#3-risk-identification--analysis)
-4. [Data Analysis & Insight Extraction](#4-data-analysis--insight-extraction)
-5. [Backlog Refinement & Estimation](#5-backlog-refinement--estimation)
-6. [User Persona Creation](#6-user-persona-creation)
-7. [Customer Churn Prediction & Analysis](#7-customer-churn-prediction--analysis)
-8. [Product Requirements Definition](#8-product-requirements-definition)
-9. [Decision Support & Option Comparison](#9-decision-support--option-comparison)
-10. [Retrospective Facilitation & Pattern Analysis](#10-retrospective-facilitation--pattern-analysis)
-11. [Scenario Modeling & Hypothesis Testing](#11-scenario-modeling--hypothesis-testing)
+- [Jacky Shen's Agile Prompt Library — Complete Edition](#jacky-shens-agile-prompt-library--complete-edition)
+  - [Table of Contents](#table-of-contents)
+  - [1. Definition of Ready (DoR) Check](#1-definition-of-ready-dor-check)
+  - [2. Backlog Prioritization \& Ordering](#2-backlog-prioritization--ordering)
+  - [3. Risk Identification \& Analysis](#3-risk-identification--analysis)
+  - [4. Data Analysis \& Insight Extraction](#4-data-analysis--insight-extraction)
+  - [5. Backlog Refinement \& Estimation](#5-backlog-refinement--estimation)
+  - [6. User Persona Creation](#6-user-persona-creation)
+  - [7. Customer Churn Prediction \& Analysis](#7-customer-churn-prediction--analysis)
+  - [8. Product Requirements Definition](#8-product-requirements-definition)
+  - [9. Decision Support \& Option Comparison](#9-decision-support--option-comparison)
+  - [10. Retrospective Facilitation \& Pattern Analysis](#10-retrospective-facilitation--pattern-analysis)
+    - [10a. Pre-Retro — Agenda Design](#10a-pre-retro--agenda-design)
+    - [10b. Post-Retro — Deep Pattern Analysis \& Improvement Actions](#10b-post-retro--deep-pattern-analysis--improvement-actions)
+  - [11. Scenario Modeling \& Hypothesis Testing](#11-scenario-modeling--hypothesis-testing)
+  - [Blank Template (Custom Scenarios)](#blank-template-custom-scenarios)
 
 ---
 
@@ -45,6 +50,12 @@ You never:
 - Ignore missing estimation or unclear dependencies
 - Give generic feedback without referencing the specific story content
 
+### ACTION ###
+- Review each user story against all three DoR criteria
+- For each criterion, give a PASS / FAIL / PARTIAL verdict with a specific reason
+- For any FAIL or PARTIAL, provide a concrete rewrite suggestion
+- Do NOT give passing marks to stories with vague language like "user-friendly" or "fast"
+
 ### CONTEXT ###
 I am a Scrum Master leading a software development team. Our DoR requires:
 1. Acceptance Criteria: At least 3 specific, measurable, testable criteria written from the user's perspective.
@@ -53,13 +64,7 @@ I am a Scrum Master leading a software development team. Our DoR requires:
 
 [Paste your user story or stories here]
 
-### ACTION ###
-- Review each user story against all three DoR criteria
-- For each criterion, give a PASS / FAIL / PARTIAL verdict with a specific reason
-- For any FAIL or PARTIAL, provide a concrete rewrite suggestion
-- Do NOT give passing marks to stories with vague language like "user-friendly" or "fast"
-
-### FORMAT ###
+### EXPRESSION ###
 For each story, output:
 - Story title
 - Criteria verdict table (Criterion | Status | Reason)
@@ -96,18 +101,18 @@ You never:
 - Ignore stated dependencies when ordering items
 - Output a ranking without explaining the reasoning
 
-### CONTEXT ###
-I am a Scrum Master leading a [team size, e.g.: 8-person] team.
-We are planning Sprint [number].
-[Paste or upload your Backlog items with Value / Effort / Risk / Dependencies data]
-
 ### ACTION ###
 - Analyze the uploaded data across all four dimensions: Value, Effort, Risk, Dependencies
 - Identify any items that must be sequenced before others due to dependencies
 - Flag any items with high risk that should be tackled early ("fail fast")
 - Generate a recommended priority ordering with rationale for the top decisions
 
-### FORMAT ###
+### CONTEXT ###
+I am a Scrum Master leading a [team size, e.g.: 8-person] team.
+We are planning Sprint [number].
+[Paste or upload your Backlog items with Value / Effort / Risk / Dependencies data]
+
+### EXPRESSION ###
 Output as a ranked table: Rank | PBI ID | Description | Story Points | Priority Rationale  
 Follow with a short paragraph highlighting the 2-3 most critical sequencing decisions.
 ```
@@ -140,19 +145,19 @@ You never:
 - Attribute risks to individual team members
 - Recommend mitigations that cannot be acted on within one Sprint
 
-### CONTEXT ###
-Our team is building [product description, e.g.: an e-commerce platform].
-Any system disruption could cause [core business impact, e.g.: lost sales or customer dissatisfaction].
-
-[Paste historical data: past Sprint retrospective notes, velocity charts, customer feedback, or incident logs]
-
 ### ACTION ###
 - Focus only on patterns that appear across multiple Sprints or data points — ignore one-off events
 - All attributions must be systemic, never directed at individuals
 - For each risk, estimate Likelihood (High/Medium/Low) and Impact (High/Medium/Low)
 - Propose at least one mitigation experiment per high-rated risk
 
-### FORMAT ###
+### CONTEXT ###
+Our team is building [product description, e.g.: an e-commerce platform].
+Any system disruption could cause [core business impact, e.g.: lost sales or customer dissatisfaction].
+
+[Paste historical data: past Sprint retrospective notes, velocity charts, customer feedback, or incident logs]
+
+### EXPRESSION ###
 Numbered list ordered by Likelihood × Impact (highest first).  
 For each risk: Risk Description | Likelihood | Impact | Evidence (where did this pattern appear?) | Mitigation Experiment
 ```
@@ -186,19 +191,19 @@ You never:
 - Present insights without linking them back to the underlying data
 - Recommend actions that cannot be tied to a specific user need
 
-### CONTEXT ###
-I am the PO for [product name].
-I need to analyze feedback from: [data sources, e.g.: app store reviews, in-app surveys, user interviews].
-
-[Paste raw feedback data here]
-
 ### ACTION ###
 1. Identify recurring themes: surface features or pain points mentioned frequently (both positive and negative)
 2. Sentiment analysis: categorize each theme as positive, negative, or neutral
 3. Extract action candidates: pull out specific improvement suggestions users explicitly mentioned
 - Ignore one-off edge cases; focus on patterns appearing in 3+ data points
 
-### FORMAT ###
+### CONTEXT ###
+I am the PO for [product name].
+I need to analyze feedback from: [data sources, e.g.: app store reviews, in-app surveys, user interviews].
+
+[Paste raw feedback data here]
+
+### EXPRESSION ###
 Structured report with three sections:
 1. **Theme Summary**: top positive and negative trends with frequency count
 2. **Sentiment Breakdown**: percentage distribution (positive / negative / neutral)
@@ -234,10 +239,6 @@ You never:
 - Estimate without explaining the complexity drivers
 - Skip identifying dependencies or technical unknowns
 
-### CONTEXT ###
-User Story: [Paste raw story here, e.g.: As a customer, I want to see personalized product recommendations...]
-Team Velocity: [e.g.: 40 story points per Sprint on average]
-
 ### ACTION ###
 1. Clarify & complete: identify ambiguous language; rewrite unclear parts; add missing acceptance criteria
 2. Dependencies & risks: identify prerequisites and potential technical blockers based on similar work
@@ -247,7 +248,12 @@ You must not:
 - Give an estimate without justification
 - Leave acceptance criteria in vague or non-testable form
 
-### FORMAT ###
+### CONTEXT ###
+User Story: [Paste raw story here, e.g.: As a customer, I want to see personalized product recommendations...]
+Team Velocity: [e.g.: 40 story points per Sprint on average]
+
+
+### EXPRESSION ###
 - **Dependency Map**: list all identified dependencies
 - **Risk Assessment**: list 2-3 potential blockers with likelihood
 - **Refined User Story**: rewritten story with complete acceptance criteria (Given/When/Then format)
@@ -283,18 +289,19 @@ You never:
 - Invent behaviors or motivations not supported by input data
 - Produce more than 5 personas (to keep focus on the highest-value segments)
 
-### CONTEXT ###
-I am building [product description, e.g.: a mobile banking app] aimed at [target market].
-Data available: [data sources, e.g.: app store reviews, user survey responses, usage analytics]
-
-[Paste data here]
 
 ### ACTION ###
 - Generate 3–5 distinct personas grounded in the data patterns
 - Each persona must reflect a real behavioral segment, not just a demographic category
 - Do NOT merge segments that have meaningfully different motivations or pain points
 
-### FORMAT ###
+### CONTEXT ###
+I am building [product description, e.g.: a mobile banking app] aimed at [target market].
+Data available: [data sources, e.g.: app store reviews, user survey responses, usage analytics]
+
+[Paste data here]
+
+### EXPRESSION ###
 For each persona:
 - **Persona Name** (evocative, e.g.: "Frugal Sarah")
 - **Demographics**: role, tech proficiency, context of use
@@ -333,6 +340,11 @@ You never:
 - Recommend retention tactics that cannot be tested within one Sprint
 - Give generic advice like "improve onboarding" without tying it to specific behavioral evidence
 
+### ACTION ###
+- Focus on users showing multiple at-risk signals, not just one weak indicator
+- All attributions must be behavioral and systemic — not about individual user "attitude"
+- For each identified segment, propose one testable retention micro-experiment
+
 ### CONTEXT ###
 Market background: [e.g.: Competitive fitness app market with multiple strong alternatives]
 Data available: [e.g.: login frequency, subscription details, feature usage logs, support interactions]
@@ -340,12 +352,7 @@ Time horizon: [e.g.: predict churn risk for the next 30 days]
 
 [Paste or upload behavioral data]
 
-### ACTION ###
-- Focus on users showing multiple at-risk signals, not just one weak indicator
-- All attributions must be behavioral and systemic — not about individual user "attitude"
-- For each identified segment, propose one testable retention micro-experiment
-
-### FORMAT ###
+### EXPRESSION ###
 For each at-risk segment:
 1. **Segment Name** (e.g.: "Lapsed Subscribers")
 2. **Churn Risk Description**: key behavioral signals driving the classification
@@ -382,11 +389,6 @@ You never:
 - Leave logical gaps or missing edge cases unaddressed
 - Output a requirements list without priority rationale
 
-### CONTEXT ###
-We have collected [customer feedback and competitive analysis] regarding
-[feature or product area, e.g.: personalized ordering].
-
-[Paste feedback, interview notes, or competitor observations]
 
 ### ACTION ###
 1. **Extract insights**: distill key findings from the raw input
@@ -394,7 +396,13 @@ We have collected [customer feedback and competitive analysis] regarding
 3. **Gap analysis**: identify logical holes, missing edge cases, or unstated assumptions in the current list
 4. **Consolidate**: produce a final prioritized requirements list, removing duplicates and resolving conflicts
 
-### FORMAT ###
+### CONTEXT ###
+We have collected [customer feedback and competitive analysis] regarding
+[feature or product area, e.g.: personalized ordering].
+
+[Paste feedback, interview notes, or competitor observations]
+
+### EXPRESSION ###
 - **Key Insights**: bulleted list of findings from the input data
 - **Requirements List**: each requirement written as "The product shall [do X] so that [user benefit]"
 - **Gap Report**: identified gaps with suggested requirements to fill them
@@ -430,6 +438,13 @@ You never:
 - Present risks without proposing at least one mitigation per high-rated risk
 - Give a recommendation without making the underlying assumptions explicit
 
+### ACTION ###
+1. **Scenario simulation**: for each option, model pessimistic / base / optimistic outcomes
+2. **Risk assessment**: identify Financial, Operational, Technical, Legal, Reputational risks per option
+3. **Mitigation strategies**: for every high-rated risk, propose one concrete mitigation action
+4. **Recommendation**: state which option you recommend, with explicit assumptions and key conditions
+
+
 ### CONTEXT ###
 Decision to be made: [describe the decision, e.g.: whether to build a native app or use a web wrapper]
 Background: [e.g.: economic pressure / competitive disruption / regulatory change]
@@ -437,13 +452,7 @@ Options under consideration: [list 2–3 options]
 
 [Paste any relevant data, constraints, or prior analysis]
 
-### ACTION ###
-1. **Scenario simulation**: for each option, model pessimistic / base / optimistic outcomes
-2. **Risk assessment**: identify Financial, Operational, Technical, Legal, Reputational risks per option
-3. **Mitigation strategies**: for every high-rated risk, propose one concrete mitigation action
-4. **Recommendation**: state which option you recommend, with explicit assumptions and key conditions
-
-### FORMAT ###
+### EXPRESSION ###
 - **Comparison Matrix**: options as columns, evaluation criteria as rows, with ratings and evidence
 - **Risk Register**: per-option risk table (Risk | Likelihood | Impact | Mitigation)
 - **Recommendation**: 1-paragraph summary with stated assumptions
@@ -482,18 +491,18 @@ You never:
 - Allocate more than 25% of time to problem identification without time for solutions
 - Suggest a format that requires tools the team doesn't have
 
+### ACTION ###
+- Design a full agenda with: icebreaker, data review, went well / improve discussion, action items, close
+- Select a retrospective format that fits the team's current mood and focus area
+- Allocate time to each section and flag any section at risk of overrunning
+
 ### CONTEXT ###
 Team size: [e.g.: 7 people], format: [remote / in-person], duration: [e.g.: 60 minutes]
 Sprint Goal: [paste Sprint Goal]
 Team velocity this Sprint: [above / below / at average] — [briefly explain why if known]
 Focus area for this retro (optional): [e.g.: deployment bottlenecks / cross-team communication]
 
-### ACTION ###
-- Design a full agenda with: icebreaker, data review, went well / improve discussion, action items, close
-- Select a retrospective format that fits the team's current mood and focus area
-- Allocate time to each section and flag any section at risk of overrunning
-
-### FORMAT ###
+### EXPRESSION ###
 Timeline format. For each section:
 | Time | Section | Facilitation Method | Tools / Materials Needed |
 ```
@@ -521,15 +530,15 @@ You never:
 - Attribute problems to individuals
 - Propose action items that cannot be completed or verified within one Sprint
 
-### CONTEXT ###
-[Paste raw retrospective content: sticky note text, meeting notes, Miro export, etc.]
-
 ### ACTION ###
 - Focus only on patterns that appear across multiple pieces of feedback — ignore one-off incidents
 - All root cause attributions must be systemic — never point to a specific person
 - Every action item must be verifiable and completable within one Sprint
 
-### FORMAT ###
+### CONTEXT ###
+[Paste raw retrospective content: sticky note text, meeting notes, Miro export, etc.]
+
+### EXPRESSION ###
 Three sections:
 
 **1. Pattern Problem List**
@@ -574,10 +583,6 @@ You never:
 - Attribute predicted outcomes to individual team members
 - Recommend a scenario without making the key assumptions explicit
 
-### CONTEXT ###
-Team background: [e.g.: 8-person cross-functional team, some members remote, average tenure 3 years]
-Activity or process being evaluated: [e.g.: remote technical spike / new definition of done]
-
 ### ACTION ###
 Compare the following scenarios for the activity above:
 
@@ -595,7 +600,11 @@ Scenario D: [e.g.: 2-hour timebox]
 - For each scenario, model outcomes across: Engagement, Completion Rate, Team Satisfaction
 - Recommend which scenario to run first as a low-risk experiment, and explain why
 
-### FORMAT ###
+### CONTEXT ###
+Team background: [e.g.: 8-person cross-functional team, some members remote, average tenure 3 years]
+Activity or process being evaluated: [e.g.: remote technical spike / new definition of done]
+
+### EXPRESSION ###
 - **Comparison Table**: Scenario A vs. B across all outcome dimensions
 - **Assumption Log**: key assumptions per scenario
 - **Recommendation**: which scenario to pilot, with one measurable hypothesis to test
@@ -626,13 +635,13 @@ You never:
 - [Anti-pattern 2]
 - [Anti-pattern 3]
 
-### CONTEXT ###
-[Business scenario, audience, relevant background data]
-
 ### ACTION ###
 [Specific tasks using strong verbs. Include Do / Don't constraints.]
 
-### FORMAT ###
+### CONTEXT ###
+[Business scenario, audience, relevant background data]
+
+### EXPRESSION ###
 [Output structure, length, examples]
 ```
 
@@ -642,6 +651,6 @@ You never:
 |---------|---------|
 | GOAL | Defines "what" and "why" — sets the success bar |
 | ROLE | Calibrates expertise level, tone, and hard guardrails via "never" rules |
-| CONTEXT | Scopes the business boundary and reduces ambiguity |
 | ACTION | Constrains execution — Do/Don't rules prevent drift |
-| FORMAT | Controls output structure for readability and reuse |
+| CONTEXT | Scopes the business boundary and reduces ambiguity |
+| EXPRESSION | Controls output structure for readability and reuse |
