@@ -20,9 +20,9 @@ This skill encapsulates 11 core scenario prompts designed by Jacky Shen (Chief A
 
 | # | Category | Scenario | Trigger Keywords |
 |---|----------|----------|-----------------|
-| 1 | Agile General | Definition of Ready (DoR) Check | DoR, user story check, ready criteria, sprint gate |
-| 2 | Agile General | Backlog Prioritization & Ordering | priority, ordering, sprint planning, release planning |
-| 3 | Agile General | Risk Identification & Analysis | risk, impediment, blocker, retro data |
+| 1 | Agile | Definition of Ready (DoR) Check | DoR, user story check, ready criteria, sprint gate |
+| 2 | Agile | Backlog Prioritization & Ordering | priority, ordering, sprint planning, release planning |
+| 3 | Agile | Risk Identification & Analysis | risk, impediment, blocker, retro data |
 | 4 | Product Owner | Data Analysis & Insight Extraction | customer feedback, review analysis, sentiment, insight |
 | 5 | Product Owner | Backlog Refinement & Estimation | refinement, story points, acceptance criteria, dependency |
 | 6 | Product Owner | User Persona Creation | persona, user segment, target user, empathy |
