@@ -1,5 +1,12 @@
 # 更新日志
 
+## 1.0.3 - 2026-11-08
+
+### 文档
+- 扩充 `README.md` 与 `README.zh-cn.md` 的安装指南
+- 补充推荐的全局安装命令：`npx skills add -g https://github.com/mebusw/jackyshen-agile-coach`
+- 增加本地安装方式、安装后验证、更新步骤与常见问题说明
+
 ## 1.0.2 - 2026-07-04
 
 ### 文档

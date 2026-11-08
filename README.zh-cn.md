@@ -25,7 +25,48 @@
 ---
 ## 安装
 
-`npx skills add mebusw/jackyshen-agile-coach`
+### 快速安装（推荐）
+
+```bash
+# 从 GitHub 仓库全局安装
+npx skills add -g https://github.com/mebusw/jackyshen-agile-coach
+```
+
+`-g`（global）表示**全局安装**，在这台机器的所有项目里都能用。如果你在多个仓库、多套工具之间使用这套提示词工具箱，推荐全局安装。
+
+### 其他安装方式
+
+```bash
+# 用注册表短名全局安装
+npx skills add -g mebusw/jackyshen-agile-coach
+
+# 仅在当前项目本地安装
+npx skills add https://github.com/mebusw/jackyshen-agile-coach
+```
+
+### 安装之后
+
+1. **验证安装** —— 技能应该已经出现在你的 agent 技能列表中，文件位于全局技能目录（通常是 `~/.agents/skills/jackyshen-agile-coach/`）：
+
+   ```bash
+   ls ~/.agents/skills/jackyshen-agile-coach/
+   ```
+
+2. **开始使用** —— 用你自己的话描述 Scrum / PO 的场景即可。技能会匹配到 11 个提示词模版中最合适的一个，并自动填入它能推断的内容，只有"只有你知道"的信息（团队规模、Sprint 目标、原始数据）才留作 `[占位符]`。
+
+3. **更新版本** —— 重新执行同一条安装命令即可拉取最新版本：
+
+   ```bash
+   npx skills add -g https://github.com/mebusw/jackyshen-agile-coach
+   ```
+
+### 常见问题
+
+| 现象 | 处理方式 |
+|---|---|
+| 提示 `npx` 不存在 | 先从 https://nodejs.org 安装 Node.js（v18+） |
+| 安装后技能没出现在列表里 | 重启 agent 会话，让它重新扫描技能目录 |
+| 安装命令执行了但没反应 | 可能该版本已安装 —— 检查 `~/.agents/skills/jackyshen-agile-coach/` |
 
 ---
 

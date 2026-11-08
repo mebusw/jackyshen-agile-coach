@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.3 - 2026-11-08
+
+### Documentation
+- Expand the installation guide in `README.md` and `README.zh-cn.md`
+- Add the recommended global install command: `npx skills add -g https://github.com/mebusw/jackyshen-agile-coach`
+- Document the local install variant, post-install verification, update steps, and troubleshooting
+
 ## 1.0.2 - 2026-07-04
 
 ### Documentation

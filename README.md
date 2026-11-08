@@ -25,7 +25,48 @@ The result: prompts that behave like a specialist colleague, not a generic assis
 ---
 ## Installation
 
-`npx skills add mebusw/jackyshen-agile-coach`
+### Quick install (recommended)
+
+```bash
+# Global install from the GitHub repository
+npx skills add -g https://github.com/mebusw/jackyshen-agile-coach
+```
+
+The `-g` (global) flag installs the skill for **every project on this machine** — recommended if you use the toolkit across multiple repos and agent tools.
+
+### Other install options
+
+```bash
+# Global install via the registry shorthand
+npx skills add -g mebusw/jackyshen-agile-coach
+
+# Local install (current project only)
+npx skills add https://github.com/mebusw/jackyshen-agile-coach
+```
+
+### After installing
+
+1. **Verify** — the skill should now show up in your agent's skill list, and the files should exist under your global skills directory (typically `~/.agents/skills/jackyshen-agile-coach/`):
+
+   ```bash
+   ls ~/.agents/skills/jackyshen-agile-coach/
+   ```
+
+2. **Use it** — just describe your Scrum / PO situation in your own words. The skill matches your request to one of the 11 prompt templates and fills in what it can, leaving `[placeholders]` for what only you know (team size, Sprint goal, raw data).
+
+3. **Update** — re-run the same install command to pull the latest version:
+
+   ```bash
+   npx skills add -g https://github.com/mebusw/jackyshen-agile-coach
+   ```
+
+### Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| `npx` not found | Install Node.js (v18+) from https://nodejs.org first |
+| Skill not listed after install | Restart your agent session so it rescans the skills directory |
+| Install looks like it did nothing | The skill may already be installed at that version — check `~/.agents/skills/jackyshen-agile-coach/` |
 
 ---
 
