@@ -5,7 +5,7 @@ description: Jacky Shen's Agile Coach AI assistant, providing structured prompt 
 
 # Jacky Shen's Agile Coach Prompt Toolkit
 
-This skill encapsulates 11 core scenario prompts designed by Jacky Shen (Chief Agile Coach, Scrum Alliance Certified CST) for Scrum agile teams, covering high-frequency work scenarios for both **Scrum Masters** and **Product Owners**.
+This skill encapsulates 11 core scenario prompts designed by Jacky Shen (Chief Agile Coach, Scrum Alliance Certified CST) for Scrum agile teams, covering high-frequency work scenarios for both **Scrum Masters** and **Product Owners** — plus a **9-lens story-splitting toolkit** for carving oversized stories along user value.
 
 ## How to Use
 
@@ -24,13 +24,35 @@ This skill encapsulates 11 core scenario prompts designed by Jacky Shen (Chief A
 | 2 | Agile | Backlog Prioritization & Ordering | priority, ordering, sprint planning, release planning |
 | 3 | Agile | Risk Identification & Analysis | risk, impediment, blocker, retro data |
 | 4 | Product Owner | Data Analysis & Insight Extraction | customer feedback, review analysis, sentiment, insight |
-| 5 | Product Owner | Backlog Refinement & Estimation | refinement, story points, acceptance criteria, dependency |
+| 5 | Product Owner | Backlog Refinement, Estimation & Story Splitting | refinement, story points, acceptance criteria, dependency, story splitting, slice, breakdown, 需求拆分, 切片 |
 | 6 | Product Owner | User Persona Creation | persona, user segment, target user, empathy |
 | 7 | Product Owner | Customer Churn Prediction & Analysis | churn, retention, at-risk users, drop-off |
 | 8 | Product Owner | Product Requirements Definition | requirements, PRD, gap analysis, needs list |
 | 9 | Product Owner | Decision Support & Option Comparison | decision, trade-off, scenario simulation, risk matrix |
 | 10 | Scrum Master | Retrospective Facilitation & Pattern Analysis | retrospective, retro, agenda, meeting notes, root cause, pattern |
 | 11 | Scrum Master | Scenario Modeling & Hypothesis Testing | scenario modeling, hypothesis, constraint analysis, what-if |
+
+---
+
+## Story Splitting Toolkit — 9 Lenses
+
+When a story is too big for one Sprint, refine it along the lens where the complexity actually lives — **never by technical layer**.
+
+| # | Lens | Split by |
+|---|---|---|
+| 1 | **User Roles** | Who the actor is |
+| 2 | **User Operations** | What the user does (create / edit / delete / export) |
+| 3 | **Data Objects** | Which business entity or sub-object |
+| 4 | **Work Flows** | Process stage or branch path |
+| 5 | **Business Logics** | Rules, calculations, decisions |
+| 6 | **Interfaces** | Channel, device, medium, environment |
+| 7 | **Simple / Complicated** | Baseline path vs complex exceptions |
+| 8 | **Functional vs Non-Functional** | Behaviour vs quality attributes (usability, reliability, performance, supportability) |
+| 9 | **Acceptance Criteria / Test Case** | Independent verifiable conditions (different "Given") |
+
+**Ordering matters**: cut one end-to-end thin slice first (usually via lens 7), then deepen with the other lenses.
+
+Full detail, worked example, and anti-patterns: `references/prompt-library.md` § 5a.
 
 ---
 

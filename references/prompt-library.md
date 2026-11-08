@@ -13,7 +13,8 @@ UPerform Enterprise Management Co., Ltd. (Shanghai)
   - [2. Backlog Prioritization \& Ordering](#2-backlog-prioritization--ordering)
   - [3. Risk Identification \& Analysis](#3-risk-identification--analysis)
   - [4. Data Analysis \& Insight Extraction](#4-data-analysis--insight-extraction)
-  - [5. Backlog Refinement \& Estimation](#5-backlog-refinement--estimation)
+  - [5. Backlog Refinement, Estimation & Story Splitting](#5-backlog-refinement-estimation--story-splitting)
+    - [5a. Story Splitting Toolkit — 9 Lenses](#5a-story-splitting-toolkit--9-lenses)
   - [6. User Persona Creation](#6-user-persona-creation)
   - [7. Customer Churn Prediction \& Analysis](#7-customer-churn-prediction--analysis)
   - [8. Product Requirements Definition](#8-product-requirements-definition)
@@ -214,16 +215,16 @@ Structured report with three sections:
 
 ---
 
-## 5. Backlog Refinement & Estimation
+## 5. Backlog Refinement, Estimation & Story Splitting
 
 **Roles**: Product Owner  
-**Best Used**: Pre-Refinement meeting preparation, individual story assessment  
-**Value**: Improve Backlog executability and clarity; ensure estimates reflect true complexity
+**Best Used**: Pre-Refinement meeting preparation, individual story assessment, oversized story triage  
+**Value**: Improve Backlog executability and clarity; split stories along user value when they exceed a Sprint; ensure estimates reflect true complexity
 
 ```
 ### GOAL ###
 Refine a user story to ensure clarity, surface hidden dependencies and risks,
-and produce a justified effort estimate.
+split it when it exceeds one Sprint, and produce a justified effort estimate for every resulting slice.
 
 ### ROLE ###
 You are a senior Product Owner with 15 years of experience in agile product development
@@ -231,36 +232,111 @@ and Backlog Refinement facilitation.
 
 Your expertise:
 - Acceptance Criteria Writing (Given/When/Then, INVEST criteria)
+- Story Splitting across 9 lenses (roles, operations, data, workflow, business rules, interfaces, simple vs complex, functional vs non-functional, acceptance criteria)
 - Dependency Mapping and Technical Risk Detection
 - Story Point Estimation (Fibonacci scale, team velocity calibration)
 
 You never:
 - Accept vague language ("easy to use", "fast", "simple") without challenging it
+- Split along technical layers (database / API / front-end) — every slice must carry user value
 - Estimate without explaining the complexity drivers
 - Skip identifying dependencies or technical unknowns
+- Return slices that cannot be delivered independently
 
 ### ACTION ###
-1. Clarify & complete: identify ambiguous language; rewrite unclear parts; add missing acceptance criteria
-2. Dependencies & risks: identify prerequisites and potential technical blockers based on similar work
-3. Estimation: recommend a story point estimate (Fibonacci: 1, 2, 3, 5, 8, 13...) and explain the key complexity drivers
+1. Size check: judge whether the story exceeds one Sprint of work. If it fits, skip to step 3.
+2. Split when oversized: choose the splitting lens that matches where the complexity actually is, then slice into candidate stories. Prefer one end-to-end thin slice first, then deepen. Tag every candidate with the lens used and one line of rationale.
+3. Clarify & complete: identify ambiguous language in each candidate; rewrite; add missing acceptance criteria
+4. Dependencies & risks: identify prerequisites and potential technical blockers based on similar work
+5. Estimation: recommend a story point estimate for each candidate (Fibonacci: 1, 2, 3, 5, 8, 13...) and explain the key complexity drivers
 
 You must not:
 - Give an estimate without justification
 - Leave acceptance criteria in vague or non-testable form
+- Split a story into pieces that have no independent user value
+
+### STORY SPLITTING LENSES ###
+Use the lens that matches where the complexity actually lives; never split by technical layer.
+1. User Roles — split by actor (each slice keeps value for its own role)
+2. User Operations — split by user action (create / edit / delete / export)
+3. Data Objects — split by business entity or sub-object (not by DB table)
+4. Work Flows — split by process stage or branch path (each slice demoable on its own)
+5. Business Logics — split by rule cluster, algorithm, or decision
+6. Interfaces — split by channel, device, medium, or environment
+7. Simple / Complicated — split the baseline path from the complex exceptions
+8. Functional vs Non-Functional — split behaviour from quality attributes (usability, reliability, performance, supportability)
+9. Acceptance Criteria / Test Case — split independent verifiable conditions with different "Given" preconditions
 
 ### CONTEXT ###
 User Story: [Paste raw story here, e.g.: As a customer, I want to see personalized product recommendations...]
 Team Velocity: [e.g.: 40 story points per Sprint on average]
+Known complexity hotspots: [e.g.: multiple roles involved, heavy rule set, several channels to support]
 
 
 ### EXPRESSION ###
+- **Size Verdict**: FITS / TOO BIG for one Sprint — with the reason (which complexity driver)
+- **Split Candidates**: table of Candidate Story | Lens Used | Why This Split | User Value
 - **Dependency Map**: list all identified dependencies
 - **Risk Assessment**: list 2-3 potential blockers with likelihood
-- **Refined User Story**: rewritten story with complete acceptance criteria (Given/When/Then format)
-- **Estimate**: recommended story points + explanation of complexity drivers
+- **Refined User Story**: rewritten story (or each candidate) with complete acceptance criteria (Given/When/Then format)
+- **Estimate**: recommended story points per candidate + explanation of complexity drivers
 ```
 
-**💡 Usage tip**: Paste the raw draft story as-is. The output serves as the discussion foundation for your next Refinement meeting.
+**💡 Usage tip**: Paste the raw draft story as-is. When a story is too big, ask for the split first — a team that debates the *slice* reaches an estimate in half the time it spends debating the *story*.
+
+---
+
+## 5a. Story Splitting Toolkit — 9 Lenses
+
+**Roles**: Product Owner  
+**Best Used**: When a user story is too large for one Sprint, during Refinement  
+**Value**: A repeatable set of slicing lenses — so you split along **user value** instead of along technical layers
+
+> Splitting is not one skill but a set of lenses. Pick the lens that matches *where the complexity actually is*. Using the wrong lens is the most common cause of worthless splits — technical-layer slices that carry no user value.
+
+### The 9 Lenses at a Glance
+
+| # | Lens | Split by | Use it when | Watch out for |
+|---|---|---|---|---|
+| 1 | **User Roles** | Who the actor is | One story serves several roles, or a role uses only part of the value | Each slice must still carry value for its own role |
+| 2 | **User Operations** | What the user does | The story packs several actions (create / edit / delete / export) | Don't over-slice below one complete business action |
+| 3 | **Data Objects** | Which business entity | The story centers on a composite entity with sub-objects or types | Never slice by database table — that's a technical split |
+| 4 | **Work Flows** | Process stage or branch path | The story spans several steps, states, or branch paths | Every slice must be demoable on its own |
+| 5 | **Business Logics** | Rules / algorithms | Rules, calculations, or decisions are hidden inside the story | Each rule slice needs testable boundaries |
+| 6 | **Interfaces** | Channel, device, medium, environment | The same capability must ship on several channels | Group minor channels into one "main + others" pair |
+| 7 | **Simple vs Complicated** | Baseline vs edge cases | A routine path and complex exceptions live in one story | Complex slice needs its own backlog entry, not a footnote |
+| 8 | **Functional vs Non-Functional** | Behaviour vs quality attributes | Functionality is clear but usability / reliability / performance / supportability are implied | A non-functional story without measurable AC is not deliverable |
+| 9 | **Acceptance Criteria / Test Case** | Independent verifiable conditions | One story carries several AC with different "Given" preconditions | Each slice must still express user value, not a test step |
+
+### How to Use Them (ordering matters)
+
+1. **Slice thin first, then deep.** Cut one end-to-end thin slice (walking skeleton) that delivers real value — usually the simplest path (Lens 7). Then deepen with the other lenses.
+2. **Locate the complexity before choosing a lens.** Ask: where does the effort and risk actually live? Roles? Rules? Data? Workflow? Interfaces?
+3. **One value per slice.** After splitting, every slice must answer: who benefits, and what can they see working?
+4. **Complete the behaviour chain.** Entry → operation → success → failure → permission → notification. A slice missing its exception path is not "done".
+5. **Check independence.** If a slice cannot be developed and released without the others, you have re-cut the same story, not split it.
+
+### Worked Example
+
+**Too big:** *"As a buyer, I want to submit an order so that I can purchase products."* (estimated 8 points, touches 5 subsystems)
+
+| # | Lens | Candidate story | Why this split |
+|---|---|---|---|
+| 1 | 7 Simple/Complicated | As a buyer, I want to submit an order with a single item so that I can complete a purchase | Walking skeleton — end-to-end, minimum value |
+| 2 | 4 Work Flows | As a buyer, I want to apply a saved coupon at checkout so that I can use my discount | Second workflow stage |
+| 3 | 3 Data Objects | As a buyer, I want to pick a delivery address from my address book so that the order ships correctly | Separates a composite entity |
+| 4 | 5 Business Logics | As a buyer, I want the shipping fee computed by weight and region so that I know the total before paying | Rule slice with testable boundaries (weight tiers × regions) |
+| 5 | 8 Functional / Non-Functional | As a buyer, I want checkout to complete within 2 seconds so that I am not blocked | Performance slice with a measurable AC |
+| 6 | 9 Acceptance Criteria | As a buyer, I want to be told why my payment was declined so that I can fix it | Independent AC → standalone story |
+
+### Anti-Patterns This Prevents
+
+- ❌ "Add a database table" / "Build the API" / "Build the UI" — technical-layer slices with no user value
+- ❌ Slices so small nobody can demo them
+- ❌ Exception paths hidden inside the happy path's acceptance criteria
+- ❌ Complex slices silently postponed forever
+
+**💡 Usage tip**: Combine with scenario 5 — the *Split Candidates* it outputs tag each slice with the lens used, so the team can argue at the slice level instead of the story level.
 
 ---
 

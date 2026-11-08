@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.0 - 2026-11-08
+
+### Features
+- Add a **9-lens story-splitting toolkit** to scenario 5 (Backlog Refinement): User Roles, User Operations, Data Objects, Work Flows, Business Logics, Interfaces, Simple vs Complicated, Functional vs Non-Functional, Acceptance Criteria / Test Case
+- Scenario 5 now runs a size check first and returns a tagged *Split Candidates* table (lens used, rationale, story points) before any estimate is discussed
+- New reference section § 5a — per-lens guidance, ordering rules, a worked example, and anti-patterns
+
+### Documentation
+- Expand `README.md` and `README.zh-cn.md` with the story-splitting toolkit (bilingual)
+- Add story-splitting trigger keywords to the SKILL.md scenario table
+
 ## 1.0.3 - 2026-11-08
 
 ### Documentation

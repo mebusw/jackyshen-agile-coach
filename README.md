@@ -101,7 +101,7 @@ The **"You Never" guardrails** in the ROLE section are the key differentiator. E
 | # | Scenario | Best Used At |
 |---|----------|-------------|
 | 4 | **Data Analysis & Insight Extraction** | Product iteration planning |
-| 5 | **Backlog Refinement & Estimation** | Refinement sessions |
+| 5 | **Backlog Refinement, Estimation & Story Splitting** | Refinement sessions / oversized story triage |
 | 6 | **User Persona Creation** | Product inception / Feature kickoff |
 | 7 | **Customer Churn Prediction & Analysis** | Quarterly health review |
 | 8 | **Product Requirements Definition** | Feature kickoff / PRD drafting |
@@ -114,6 +114,30 @@ The **"You Never" guardrails** in the ROLE section are the key differentiator. E
 | 10a | **Retrospective Agenda Design** | Before the retro |
 | 10b | **Retrospective Pattern Analysis** | After the retro |
 | 11 | **Scenario Modeling & Hypothesis Testing** | Org design / Process experiments |
+
+---
+
+## Story Splitting Toolkit — 9 Lenses
+
+An oversized story is the most common cause of a stalled Sprint. The fix is rarely "estimate it harder" — it is splitting the story along the dimension where the complexity actually lives.
+
+**Never split by technical layer** (database / API / front-end). Every slice must deliver value on its own.
+
+| # | Lens | Split by | Use it when |
+|---|---|---|---|
+| 1 | **User Roles** | Who the actor is | One story serves several roles |
+| 2 | **User Operations** | What the user does | The story packs several actions (create / edit / delete / export) |
+| 3 | **Data Objects** | Which business entity | The story centers on a composite entity |
+| 4 | **Work Flows** | Process stage or branch path | The story spans several steps, states, or branches |
+| 5 | **Business Logics** | Rules, calculations, decisions | Rules or algorithms are hidden inside the story |
+| 6 | **Interfaces** | Channel, device, medium, environment | The same capability ships on several channels |
+| 7 | **Simple / Complicated** | Baseline vs edge cases | A routine path and complex exceptions live in one story |
+| 8 | **Functional vs Non-Functional** | Behaviour vs quality attributes | Usability / reliability / performance / supportability are implied |
+| 9 | **Acceptance Criteria / Test Case** | Independent verifiable conditions | One story carries several AC with different "Given" |
+
+**How to apply it**: scenario 5 now runs a size check first. If the story exceeds one Sprint it returns a **Split Candidates** table — each slice tagged with the lens used, the reason for the split, and its story points — before any estimate is discussed.
+
+Full detail, worked example, and anti-patterns: [`references/prompt-library.md` § 5a](references/prompt-library.md).
 
 ---
 
@@ -178,7 +202,7 @@ jackyshen-agile-coach/
 ├── README.md                     # This file (English)
 ├── README.zh-cn.md               # Chinese version
 └── references/
-    └── prompt-library.md         # All 11 complete prompt templates
+    └── prompt-library.md         # All 11 complete prompt templates + story-splitting toolkit (§ 5a)
 ```
 
 ---
